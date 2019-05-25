@@ -1,0 +1,35 @@
+[33mcommit 8aedb7400d6dd6b8da29872ec8a29791e9b4be5f[m[33m ([m[1;36mHEAD -> [m[1;32mEndPoint[m[33m)[m
+Author: NataSh <N.Shepina@bk.ru>
+Date:   Sat May 25 19:32:41 2019 +0300
+
+    add FakeCognitiveApiClient
+
+[33mcommit fdd6ec378df79958fb11513500393e3b2e04e9ad[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: NataSh <N.Shepina@bk.ru>
+Date:   Sat May 25 19:02:48 2019 +0300
+
+    Add Face model
+
+[33mcommit a138ab62313cc00ba4af0aabe7785721b3107409[m[33m ([m[1;31morigin/congnitiveclient[m[33m)[m
+Author: tmteam <tmteam@yandex.ru>
+Date:   Sat May 25 19:00:06 2019 +0300
+
+    Add cognitive client
+
+[33mcommit fc0aa212f7875fd16eeb44a697485f721bc8783c[m
+Author: tmteam <tmteam@yandex.ru>
+Date:   Sat May 25 18:47:45 2019 +0300
+
+    instal cognitive client
+
+[33mcommit 3ff67002030e206ffb68500e80b79553116f144d[m
+Author: tmteam <tmteam@yandex.ru>
+Date:   Sat May 25 18:42:21 2019 +0300
+
+    check
+
+[33mcommit a20adeca35f98cd75c85a9556f3677fba0462cc8[m
+Author: NataSh <N.Shepina@bk.ru>
+Date:   Sat May 25 18:36:42 2019 +0300
+
+    resive jpg
