@@ -10,7 +10,20 @@ namespace PapiServiсe
     {
         public Task<IList<DetectedFace>> GetFaceListAsync(Stream stream)
         {
-            var answer = new DetectedFace[0];
+            var answer = new[]
+            {
+                new DetectedFace
+                {
+                     FaceRectangle = new FaceRectangle(42,43,44,45),
+                     FaceAttributes =  new FaceAttributes
+                     {
+                         Age =  50,
+                         Gender = Gender.Female,
+                         Smile = 0.55
+                     }
+                }
+            };
+                
             return Task.FromResult<IList<DetectedFace>>(answer);
         }
     }
