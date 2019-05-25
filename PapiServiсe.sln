@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PapiServiсe", "PapiServiсe\PapiServiсe.csproj", "{D1AACAD4-9946-4A40-BC24-8C77BBCF99C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PapiService.CognitiveClient", "PapiService.CognitiveClient\PapiService.CognitiveClient.csproj", "{D1DDDC34-A9AA-47A4-9D34-DD16BDA05909}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{D1AACAD4-9946-4A40-BC24-8C77BBCF99C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1AACAD4-9946-4A40-BC24-8C77BBCF99C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1AACAD4-9946-4A40-BC24-8C77BBCF99C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1DDDC34-A9AA-47A4-9D34-DD16BDA05909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1DDDC34-A9AA-47A4-9D34-DD16BDA05909}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1DDDC34-A9AA-47A4-9D34-DD16BDA05909}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1DDDC34-A9AA-47A4-9D34-DD16BDA05909}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
