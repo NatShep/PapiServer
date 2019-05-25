@@ -12,6 +12,6 @@ namespace PapiService.CognitiveClient
         /// </summary>
         /// <param name="stream">An image</param>
         /// <returns>A list of detected faces or an empty list</returns>
-        Task<IList<DetectedFace>> GetFaceListAsync(FileStream stream);
+        Task<IList<DetectedFace>> GetFaceListAsync(Stream stream);
     }
 }

@@ -18,13 +18,13 @@ namespace PapiService.CognitiveClient
                 new ApiKeyServiceClientCredentials(key));
             _faceClient.Endpoint = endpoint;
         }
-        
+
         /// <summary>
         /// Returns all faces detected in an image stream
         /// </summary>
         /// <param name="stream">An image</param>
         /// <returns>A list of detected faces or an empty list</returns>
-        public async Task<IList<DetectedFace>> GetFaceListAsync(FileStream stream)
+        public async Task<IList<DetectedFace>> GetFaceListAsync(Stream stream)
         {
             try
             {

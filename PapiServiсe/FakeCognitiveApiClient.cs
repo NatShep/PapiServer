@@ -8,7 +8,7 @@ namespace PapiServiсe
 {
     public class FakeCognitiveApiClient: ICognitiveApiClient
     {
-        public Task<IList<DetectedFace>> GetFaceListAsync(FileStream stream)
+        public Task<IList<DetectedFace>> GetFaceListAsync(Stream stream)
         {
             var answer = new DetectedFace[0];
             return Task.FromResult<IList<DetectedFace>>(answer);
