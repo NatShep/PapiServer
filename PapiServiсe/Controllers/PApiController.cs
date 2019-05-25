@@ -26,13 +26,16 @@ namespace PapiServiсe.Controllers
 
        
         [HttpPost]
-        public string Post(IFormFile jpgRequest)
+        public Face Post(IFormFile jpgRequest)
         {
             
             var stream = jpgRequest.OpenReadStream();
             var name = jpgRequest.FileName;
-
-            return name;
+            
+            
+            
+            var face = new Face();
+            return face;
          
             
             var response = HttpContext.Response.Headers;
