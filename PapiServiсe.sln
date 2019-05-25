@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PapiServiсe", "PapiServiс
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PapiService.CognitiveClient", "PapiService.CognitiveClient\PapiService.CognitiveClient.csproj", "{D1DDDC34-A9AA-47A4-9D34-DD16BDA05909}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PapiService.Tests", "PapiService.Tests\PapiService.Tests.csproj", "{88525A2B-FCA4-4177-BB45-DE4D741E1255}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{D1DDDC34-A9AA-47A4-9D34-DD16BDA05909}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1DDDC34-A9AA-47A4-9D34-DD16BDA05909}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1DDDC34-A9AA-47A4-9D34-DD16BDA05909}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88525A2B-FCA4-4177-BB45-DE4D741E1255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88525A2B-FCA4-4177-BB45-DE4D741E1255}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88525A2B-FCA4-4177-BB45-DE4D741E1255}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88525A2B-FCA4-4177-BB45-DE4D741E1255}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

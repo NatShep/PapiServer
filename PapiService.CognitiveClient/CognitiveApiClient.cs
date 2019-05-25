@@ -12,11 +12,21 @@ namespace PapiService.CognitiveClient
     {
         private IFaceClient _faceClient;
 
+        public static CognitiveApiClient CreateDefault()
+        {
+            var url = "https://westcentralus.api.cognitive.microsoft.com"; ///face/v1.0/";
+            var key1 = "829cf5ddf69e4eba9070c631c92c79e5";
+            var key2 = "dc4c94ea9c654568b22ae4b4c1f8ae15";
+            return new CognitiveApiClient(key2, url);
+        }
+        
+        
         public CognitiveApiClient(string key, string endpoint)
         {
             _faceClient = new FaceClient(
                 new ApiKeyServiceClientCredentials(key));
             _faceClient.Endpoint = endpoint;
+            
         }
 
         /// <summary>
