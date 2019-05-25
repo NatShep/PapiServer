@@ -12,6 +12,7 @@ namespace PapiServiсe
 {
     public class Program
     {
+        //check
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
