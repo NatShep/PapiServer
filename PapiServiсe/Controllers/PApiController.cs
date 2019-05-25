@@ -5,8 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
 using PapiService.CognitiveClient;
 using PapiServiсe.Models;
+using FaceRectangle = PapiServiсe.Models.FaceRectangle;
 
 namespace PapiServiсe.Controllers
 {
@@ -29,21 +31,32 @@ namespace PapiServiсe.Controllers
             var cognitiveAnswer = task.Result;
             
             var face = cognitiveAnswer?
-                .Select(o => new FaceDto
-                {
-                    Rectangle = new FaceRectangle
-                    {
-                        Top    = o.FaceRectangle.Top, 
-                        Height = o.FaceRectangle.Height, 
-                        Left   = o.FaceRectangle.Left,
-                        Width  = o.FaceRectangle.Width
-                    },
-                    Age    = o.FaceAttributes.Age,
-                    Gender = o.FaceAttributes.Gender,
-                    Smile  = o.FaceAttributes.Smile
-                }).FirstOrDefault();
+                .Select(ConvertToResponseDto).FirstOrDefault();
 
             return new CompileResponseDto {Face = face};
+        }
+
+        private FaceDto ConvertToResponseDto(DetectedFace o)
+        {
+            var (emotion, emoLevel) 
+                = EmotionConverter.GetResultEmotion(o.FaceAttributes.Emotion);
+
+            return new FaceDto
+            {
+                EmotionLevel = emoLevel,
+                EmotionType = emotion,
+                EmotionName = emotion.ToString(),
+                Age = o.FaceAttributes.Age,
+                Gender = o.FaceAttributes.Gender,
+                Smile = o.FaceAttributes.Smile,
+                Rectangle = new FaceRectangle
+                {
+                    Top = o.FaceRectangle.Top,
+                    Height = o.FaceRectangle.Height,
+                    Left = o.FaceRectangle.Left,
+                    Width = o.FaceRectangle.Width
+                }
+            };
         }
     }
 }
