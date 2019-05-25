@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PapiService.CognitiveClient;
 using PapiServiсe.Models;
 
 namespace PapiServiсe.Controllers
@@ -13,30 +14,21 @@ namespace PapiServiсe.Controllers
     [ApiController]
     public class PApiController : ControllerBase
     {
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-        {
-            return new string[] {"value1", "value2"};
-        }
-
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return "value";
-        }
-
+        ICognitiveApiClient _client = new FakeCognitiveApiClient();
+        
+        [HttpGet("/api/health")]
+        public string Health() => "Ok";
 
         [HttpPost]
         public CompileResponseDto Post(IFormFile jpgRequest)
         { 
             var stream = jpgRequest.OpenReadStream();
-            var name = jpgRequest.FileName;
-
-            var client = new FakeCognitiveApiClient();
-            var task = client.GetFaceListAsync(null);
+            
+            var task = _client.GetFaceListAsync(stream);
             task.Wait();
             var cognitiveAnswer = task.Result;
-            FaceDto output = cognitiveAnswer
+            
+            var face = cognitiveAnswer?
                 .Select(o => new FaceDto
                 {
                     Rectangle = new FaceRectangle
@@ -49,32 +41,7 @@ namespace PapiServiсe.Controllers
                     Smile = o.FaceAttributes.Smile
                 }).FirstOrDefault();
 
-
-
-            // var cognitiveAnswer = task.Result.FirstOrDefault();
-            if (cognitiveAnswer == null)
-            {
-                return null;
-            }
-
-            var face = new FaceDto { };
-            return new CompileResponseDto {Faces = outputs};
-
-
-            //var response = HttpContext.Response.Headers;
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] PApiRequestDto papirequest)
-        {
-           
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return new CompileResponseDto {Face = face};
         }
     }
 }
