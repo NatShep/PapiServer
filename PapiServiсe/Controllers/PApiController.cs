@@ -14,7 +14,7 @@ namespace PapiServiсe.Controllers
     [ApiController]
     public class PApiController : ControllerBase
     {
-        ICognitiveApiClient _client = new FakeCognitiveApiClient();
+        ICognitiveApiClient _client = CognitiveApiClient.CreateDefault();
         
         [HttpGet("/api/health")]
         public string Health() => "Ok";
@@ -33,12 +33,14 @@ namespace PapiServiсe.Controllers
                 {
                     Rectangle = new FaceRectangle
                     {
-                        Top = o.FaceRectangle.Top, Height = o.FaceRectangle.Top, Left = o.FaceRectangle.Left,
-                        Width = o.FaceRectangle.Width
+                        Top    = o.FaceRectangle.Top, 
+                        Height = o.FaceRectangle.Height, 
+                        Left   = o.FaceRectangle.Left,
+                        Width  = o.FaceRectangle.Width
                     },
-                    Age = o.FaceAttributes.Age,
+                    Age    = o.FaceAttributes.Age,
                     Gender = o.FaceAttributes.Gender,
-                    Smile = o.FaceAttributes.Smile
+                    Smile  = o.FaceAttributes.Smile
                 }).FirstOrDefault();
 
             return new CompileResponseDto {Face = face};

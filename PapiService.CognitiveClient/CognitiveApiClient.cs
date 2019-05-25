@@ -39,20 +39,17 @@ namespace PapiService.CognitiveClient
             try
             {
                 return await _faceClient.Face.DetectWithStreamAsync(
-                    stream, 
-                    true, 
-                    false,
-                    new FaceAttributeType[]
-                        { FaceAttributeType.Age, 
+                    stream, true, false,
+                    new[]
+                        { 
+                            FaceAttributeType.Age, 
                             FaceAttributeType.Gender, 
                             FaceAttributeType.Smile ,
-                            FaceAttributeType.HeadPose
-                            
                         });
             }
             catch (APIErrorException e)
             {
-                Debug.WriteLine("GetFaceListAsync: " + e.Message);
+                Console.WriteLine("GetFaceListAsync: " + e.Message);
             }
             return Array.Empty<DetectedFace>();
         }
