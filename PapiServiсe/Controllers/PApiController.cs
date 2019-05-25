@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -32,8 +33,15 @@ namespace PapiServiсe.Controllers
             var stream = jpgRequest.OpenReadStream();
             var name = jpgRequest.FileName;
             
-            
-            
+            var client = new FakeCognitiveApiClient();
+            var task = client.GetFaceListAsync(null);
+            task.Wait();
+            var cognitiveAnswer = task.Result.FirstOrDefault();
+            if (cognitiveAnswer == null)
+            {
+                return null;
+            }
+
             var face = new Face();
             return face;
          

@@ -8,7 +8,7 @@ using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
 
 namespace PapiService.CognitiveClient
 {
-    public class CognitiveApiClient
+    public class CognitiveApiClient : ICognitiveApiClient
     {
         private IFaceClient _faceClient;
 
